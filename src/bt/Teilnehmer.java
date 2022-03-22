@@ -3,9 +3,6 @@ package bt;
 public class Teilnehmer implements Comparable<Teilnehmer>{
 
     private String name;
-
-
-
     private Teilnehmer tv;
     private Teilnehmer tn;
     private CustomList Points;
@@ -28,12 +25,7 @@ public class Teilnehmer implements Comparable<Teilnehmer>{
 
     @Override
     public String toString() {
-        return "Teilnehmer{" +
-                "name='" + name + '\'' +
-                ", tv=" + tv +
-                ", tn=" + tn +
-                ", Points=" + Points +
-                '}';
+        return "name=" + name  ;
     }
 
     public Teilnehmer getTv() {
