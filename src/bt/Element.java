@@ -2,6 +2,10 @@ package bt;
 
 public class Element implements Comparable<Element>{
 
+
+    //glaube Element muss ich zu Punkte umbenennen und es nur aus int machen.
+
+
     private int wert;
     Element next;
 

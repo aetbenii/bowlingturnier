@@ -21,8 +21,6 @@ public class Teilnehmer implements Comparable<Teilnehmer>{
         Points = new CustomList();
     }
 
-
-
     @Override
     public String toString() {
         return "name=" + name  ;
