@@ -1,25 +1,25 @@
 package bt;
 
 public class CustomList {
-    private Element start;
+    private Point start;
 
     public CustomList() {
         start = null;
     }
 
     public CustomList(int eg) {
-        start = new Element(eg);
+        start = new Point(eg);
     }
 
-    public Element getLastElement(){
-        Element e = start;
+    public Point getLastElement(){
+        Point e = start;
         while(e.getNext() != null){
             e = e.getNext();
         }
         return e;
     }
 
-    public void addElement(Element e){
+    public void addElement(Point e){
         if(start == null){
             start = e;
         }else{
@@ -27,8 +27,8 @@ public class CustomList {
         }
     }
 
-    public void removeElement(Element e){
-        Element check = start;
+    public void removeElement(Point e){
+        Point check = start;
         if( e.getWert() != start.getWert()){
             while (check.getNext() != null) {
                 if(e.getWert() == check.getNext().getWert()){
@@ -44,7 +44,7 @@ public class CustomList {
 
     public int countElements(){
         int count = 1;
-        Element e = start;
+        Point e = start;
         if(start.getNext() == null){
             return 1;
         }
@@ -57,12 +57,21 @@ public class CustomList {
 
     // Zählt die Punkte die der Teilnehmer besitzt
     public int countPoints(){
-        // !!!!!!!!!!!!!!!!!!!!!!!!
-        //noch nicht gemacht
-        return 0;
+        int points = 0;
+        Point e = start;
+        if(start.getNext() == null){
+            return start.getWert();
+        }
+        while(e.getNext() != null){
+            points += e.getWert();
+            e = e.getNext();
+        }
+        return points;
+
+
     }
 
-    public boolean containsElement(Element e){
+    public boolean containsElement(Point e){
 
 
         return false;

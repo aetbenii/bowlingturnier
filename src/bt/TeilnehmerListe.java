@@ -1,7 +1,5 @@
 package bt;
 
-import java.util.Locale;
-
 public class TeilnehmerListe {
 
     private Teilnehmer start;
@@ -68,27 +66,30 @@ public class TeilnehmerListe {
         Teilnehmer teilnehmer = start;
         while(teilnehmer.getTn() != null){
             if(teilnehmer.getName().toLowerCase().equals(tname.toLowerCase())){
-                teilnehmer.getPoints().addElement(new Element(points));
+                teilnehmer.getPointslist().addElement(new Point(points));
             }else{
                 teilnehmer = teilnehmer.getTn();
             }
         }
+        if(teilnehmer.getName().toLowerCase().equals(tname.toLowerCase())){
+            teilnehmer.getPointslist().addElement(new Point(points));
+        }
     }
 
 
+
     public int countTeilnehmer() {
-        int count = 1;
+        int count = 0;
         Teilnehmer t = start;
         if (start.getTn() == null) {
-            System.out.println(start.toString());
+            System.out.print("Anzahl Teilnehmer: ");
             return 1;
         }
         while (t.getTn() != null) {
             count++;
-            System.out.println(t.toString().toLowerCase());
             t = t.getTn();
         }
-        System.out.println(t.toString().toLowerCase());
+        System.out.print("Anzahl Teilnehmer: ");
         return count;
     }
 

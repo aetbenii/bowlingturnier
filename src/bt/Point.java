@@ -1,20 +1,20 @@
 package bt;
 
-public class Element implements Comparable<Element>{
+public class Point implements Comparable<Point>{
 
 
     //glaube Element muss ich zu Punkte umbenennen und es nur aus int machen.
 
 
     private int wert;
-    Element next;
+    Point next;
 
-    public Element(int eg) {
+    public Point(int eg) {
         this.wert = eg;
         this.next = null;
     }
 
-    public Element(int eg, Element next) {
+    public Point(int eg, Point next) {
         this.wert = eg;
         this.next = next;
     }
@@ -27,11 +27,11 @@ public class Element implements Comparable<Element>{
         this.wert = wert;
     }
 
-    public Element getNext() {
+    public Point getNext() {
         return next;
     }
 
-    public void setNext(Element next) {
+    public void setNext(Point next) {
         this.next = next;
     }
 
@@ -44,7 +44,7 @@ public class Element implements Comparable<Element>{
     }
 
     @Override
-    public int compareTo(Element o) {
+    public int compareTo(Point o) {
         try {
             if(this.getWert() == o.getWert() && this.getNext().getWert() == o.getNext().getWert()){
                 return 1;

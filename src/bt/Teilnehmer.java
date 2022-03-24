@@ -5,26 +5,42 @@ public class Teilnehmer implements Comparable<Teilnehmer>{
     private String name;
     private Teilnehmer tv;
     private Teilnehmer tn;
-    private CustomList Points;
+    private CustomList pointslist;
 
     public Teilnehmer(String name, Teilnehmer next){
         this.name = name;
         this.tv = null;
         this.tn = next;
-        Points = new CustomList();
+        pointslist = new CustomList();
     }
 
     public Teilnehmer(String name,Teilnehmer before, Teilnehmer next){
         this.name = name;
         this.tv = before;
         this.tn = next;
-        Points = new CustomList();
+        pointslist = new CustomList();
     }
 
-    @Override
-    public String toString() {
-        return "name=" + name  ;
-    }
+//    @Override
+//    public String toString() {
+//        return "Teilnehmer{" +
+//                "name='" + name + '\'' +
+//                ", tv=" + tv +
+//                ", tn=" + tn +
+//                ", pointslist=" + pointslist +
+//                '}';
+//    }
+
+//    @Override
+//    public String toString() {
+//        if(this.getPointslist() != null){
+//            return "Teilnehmer{" +
+//                    "name='" + name + '\''+this.getPointslist().countPoints();
+//        }else{
+//            return "Teilnehmer{" +
+//                    "name='" + name + '\'';
+//        }
+//    }
 
     public Teilnehmer getTv() {
         return tv;
@@ -50,8 +66,8 @@ public class Teilnehmer implements Comparable<Teilnehmer>{
         this.name = name;
     }
 
-    public CustomList getPoints() {
-        return Points;
+    public CustomList getPointslist() {
+        return pointslist;
     }
 
 
