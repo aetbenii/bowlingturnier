@@ -28,6 +28,6 @@ public class Main {
         System.out.println(a1.getPointslist().countTotalPoints());
         liste.removeTeilnehmer("aalex");
         System.out.println(liste.countTeilnehmer() + "\n ---");
-        //System.out.println(liste.toString());
+        System.out.println(liste.toString());
     }
 }

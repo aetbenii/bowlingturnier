@@ -19,7 +19,7 @@ public class CustomList {
         return e;
     }
 
-    public void addElement(Point e){
+    public void addPoints(Point e){
         if(start == null){
             start = e;
         }else{
@@ -27,7 +27,7 @@ public class CustomList {
         }
     }
 
-    public void removeElement(Point e){
+    public void removePoint(Point e){
         Point check = start;
         if( e.getWert() != start.getWert()){
             while (check.getNext() != null) {
@@ -55,7 +55,7 @@ public class CustomList {
         return count;
     }
 
-    // Zählt die Punkte die der Teilnehmer besitzt //nicht fertig
+    // Zählt die Punkte die der Teilnehmer besitzt
     public int countTotalPoints(){
         int points = 0;
         Point e = start;
@@ -70,9 +70,6 @@ public class CustomList {
     }
 
     public boolean containsElement(Point e){
-
-
         return false;
     }
-
 }

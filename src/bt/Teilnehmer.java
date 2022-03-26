@@ -11,21 +11,21 @@ public class Teilnehmer implements Comparable<Teilnehmer>{
         this.name = name;
         this.tv = null;
         this.tn = null;
-        pointslist = new CustomList();
+        pointslist = new CustomList(0);
     }
 
     public Teilnehmer(String name, Teilnehmer next){
         this.name = name;
         this.tv = null;
         this.tn = next;
-        pointslist = new CustomList();
+        pointslist = new CustomList(0);
     }
 
     public Teilnehmer(String name,Teilnehmer before, Teilnehmer next){
         this.name = name;
         this.tv = before;
         this.tn = next;
-        pointslist = new CustomList();
+        pointslist = new CustomList(0);
     }
 
 //    @Override
@@ -38,16 +38,10 @@ public class Teilnehmer implements Comparable<Teilnehmer>{
 //                '}';
 //    }
 
-//    @Override
-//    public String toString() {
-//        if(this.getPointslist() != null){
-//            return "Teilnehmer{" +
-//                    "name='" + name + '\''+this.getPointslist().countPoints();
-//        }else{
-//            return "Teilnehmer{" +
-//                    "name='" + name + '\'';
-//        }
-//    }
+    @Override
+    public String toString() {
+        return "Name: "+this.name+", Punkte: "+this.getPointslist().countTotalPoints();
+    }
 
     public Teilnehmer getTv() {
         return tv;
@@ -80,9 +74,13 @@ public class Teilnehmer implements Comparable<Teilnehmer>{
 
     @Override
     public int compareTo(Teilnehmer teilnehmer) {
-
-        // hier fehlt noch die halbe lebensgeschichte!!
-
+        if(this.getPointslist().countTotalPoints() == teilnehmer.getPointslist().countTotalPoints()){
+            return 0;
+        }else if(this.getPointslist().countTotalPoints() > teilnehmer.getPointslist().countTotalPoints()){
+            return 0;
+        }else if(this.getPointslist().countTotalPoints() < teilnehmer.getPointslist().countTotalPoints()){
+            return 1;
+        }
         return 0;
     }
 }

@@ -71,13 +71,13 @@ public class TeilnehmerListe {
         Teilnehmer teilnehmer = start;
         while(teilnehmer.getTn() != null){
             if(teilnehmer.getName().toLowerCase().equals(tname.toLowerCase())){
-                teilnehmer.getPointslist().addElement(new Point(points));
+                teilnehmer.getPointslist().addPoints(new Point(points));
             }else{
                 teilnehmer = teilnehmer.getTn();
             }
         }
         if(teilnehmer.getName().toLowerCase().equals(tname.toLowerCase())){
-            teilnehmer.getPointslist().addElement(new Point(points));
+            teilnehmer.getPointslist().addPoints(new Point(points));
         }
     }
 
@@ -96,4 +96,35 @@ public class TeilnehmerListe {
         return count;
     }
 
+    //meine variante der "ToStRinG".
+//    public void alleTeilnehmer() {
+//        Teilnehmer teilnehmer = start;
+//        if(start == null){
+//            System.out.println("Die Liste ist leer!");
+//        }else{
+//            while(teilnehmer.getTn() != null){
+//                System.out.println(teilnehmer.toString());
+//                teilnehmer = teilnehmer.getTn();
+//            }
+//            System.out.println(teilnehmer.toString());
+//        }
+//    }
+
+    @Override
+    public String toString() {
+        String at = "";
+        Teilnehmer teilnehmer = start;
+        if(start == null){
+            at += "Die Liste ist leer!";
+        }else{
+            while(teilnehmer.getTn() != null){
+                at += teilnehmer.toString()+'\n';
+                teilnehmer = teilnehmer.getTn();
+            }
+            at += teilnehmer.toString()+'\n';
+        }
+        return "TeilnehmerListe{"+'\n' +
+                 at +
+                '}';
+    }
 }
