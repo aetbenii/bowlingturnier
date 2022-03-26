@@ -7,8 +7,8 @@ public class CustomList {
         start = null;
     }
 
-    public CustomList(int eg) {
-        start = new Point(eg);
+    public CustomList(int punkte) {
+        start = new Point(punkte);
     }
 
     public Point getLastElement(){
@@ -55,8 +55,8 @@ public class CustomList {
         return count;
     }
 
-    // Zählt die Punkte die der Teilnehmer besitzt
-    public int countPoints(){
+    // Zählt die Punkte die der Teilnehmer besitzt //nicht fertig
+    public int countTotalPoints(){
         int points = 0;
         Point e = start;
         if(start.getNext() == null){
@@ -66,9 +66,7 @@ public class CustomList {
             points += e.getWert();
             e = e.getNext();
         }
-        return points;
-
-
+        return points += e.getWert();
     }
 
     public boolean containsElement(Point e){

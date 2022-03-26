@@ -49,17 +49,22 @@ public class TeilnehmerListe {
         }
     }
 
-    public void removeTeilnehmer(Teilnehmer t){
+    public void removeTeilnehmer(String teilnehmername){
         Teilnehmer teilnehmer = start;
-        while(teilnehmer.getTn() != null){
-            if(teilnehmer.getName().toLowerCase().equals(t.getName().toLowerCase())){
-                teilnehmer.getTv().setTn(teilnehmer.getTn());
-                teilnehmer.getTn().setTv(teilnehmer.getTv());
-                break;
-            }else{
-                teilnehmer = teilnehmer.getTn();
+        if(teilnehmer.getName().toLowerCase().equals(teilnehmername.toLowerCase()) && teilnehmer.getTv() == null){
+            teilnehmer.getTn().setTv(null);
+        }else{
+            while(teilnehmer.getTn() != null){
+                if(teilnehmer.getName().toLowerCase().equals(teilnehmername.toLowerCase())){
+                    teilnehmer.getTv().setTn(teilnehmer.getTn());
+                    teilnehmer.getTn().setTv(teilnehmer.getTv());
+                    break;
+                }else{
+                    teilnehmer = teilnehmer.getTn();
+                }
             }
         }
+
     }
 
     public void addPointsToTeilnehmer(String tname, int points){
@@ -75,8 +80,6 @@ public class TeilnehmerListe {
             teilnehmer.getPointslist().addElement(new Point(points));
         }
     }
-
-
 
     public int countTeilnehmer() {
         int count = 0;

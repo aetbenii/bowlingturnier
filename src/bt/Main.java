@@ -16,17 +16,18 @@ public class Main {
         liste.addTeilnehmer(new Teilnehmer("tom",null));
         liste.addTeilnehmer(new Teilnehmer("aalex",null));
         liste.addTeilnehmer(a2);
-        System.out.println(liste.countTeilnehmer() + "\n ---");
 
-        liste.removeTeilnehmer(a2);
 
         System.out.println(liste.countTeilnehmer() + "\n ---");
+
+        liste.removeTeilnehmer(a2.getName());
 
         liste.addPointsToTeilnehmer("thomas", 5);
-        a1.getPointslist().countPoints();
-        System.out.println(a1.getPointslist().countPoints());
-
-        System.out.println("   ");
+        liste.addPointsToTeilnehmer("thomas", 10);
+        a1.getPointslist().countTotalPoints();
+        System.out.println(a1.getPointslist().countTotalPoints());
+        liste.removeTeilnehmer("aalex");
+        System.out.println(liste.countTeilnehmer() + "\n ---");
         //System.out.println(liste.toString());
     }
 }

@@ -7,6 +7,13 @@ public class Teilnehmer implements Comparable<Teilnehmer>{
     private Teilnehmer tn;
     private CustomList pointslist;
 
+    public Teilnehmer(String name){
+        this.name = name;
+        this.tv = null;
+        this.tn = null;
+        pointslist = new CustomList();
+    }
+
     public Teilnehmer(String name, Teilnehmer next){
         this.name = name;
         this.tv = null;
