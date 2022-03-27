@@ -8,11 +8,12 @@ public class TeilnehmerListe {
         start = null;
     }
 
+    //fertig
     public void addTeilnehmer(Teilnehmer t) {
-        Teilnehmer teilnehmer = start;
+        Teilnehmer teilnehmer = this.start;
 
-        if (start == null) { // -> wenn noch kein benutzer in der "liste" ist wird es hier aufgefangen sonst ->
-            start = t;
+        if (this.start == null) { // -> wenn noch kein benutzer in der "liste" ist wird es hier aufgefangen sonst ->
+            this.start = t;
             //System.out.println("Dies ist der erste Benutzer");
         } else {
             while (true) {
@@ -38,10 +39,8 @@ public class TeilnehmerListe {
                     if (teilnehmer.getTn() != null) {
                         teilnehmer = teilnehmer.getTn();
                     } else {
-                        teilnehmer.getTv().setTn(t);
-                        t.setTv(teilnehmer.getTv());
-                        teilnehmer.setTv(t);
-                        t.setTn(teilnehmer);
+                        teilnehmer.setTn(t);
+                        t.setTv(teilnehmer);
                         break;
                     }
                 }
@@ -49,10 +48,12 @@ public class TeilnehmerListe {
         }
     }
 
+    //fertig
     public void removeTeilnehmer(String teilnehmername){
         Teilnehmer teilnehmer = start;
         if(teilnehmer.getName().toLowerCase().equals(teilnehmername.toLowerCase()) && teilnehmer.getTv() == null){
             teilnehmer.getTn().setTv(null);
+            start = teilnehmer.getTn();
         }else{
             while(teilnehmer.getTn() != null){
                 if(teilnehmer.getName().toLowerCase().equals(teilnehmername.toLowerCase())){
@@ -63,53 +64,87 @@ public class TeilnehmerListe {
                     teilnehmer = teilnehmer.getTn();
                 }
             }
+            if(teilnehmer.getTn() == null){
+                teilnehmer.getTv().setTn(null);
+            }
         }
 
     }
 
+    //fertig
     public void addPointsToTeilnehmer(String tname, int points){
         Teilnehmer teilnehmer = start;
         while(teilnehmer.getTn() != null){
             if(teilnehmer.getName().toLowerCase().equals(tname.toLowerCase())){
                 teilnehmer.getPointslist().addPoints(new Point(points));
+                break;
             }else{
                 teilnehmer = teilnehmer.getTn();
             }
         }
-        if(teilnehmer.getName().toLowerCase().equals(tname.toLowerCase())){
+        if(teilnehmer.getTn() == null){
             teilnehmer.getPointslist().addPoints(new Point(points));
         }
     }
 
+    //fertig
     public int countTeilnehmer() {
         int count = 0;
         Teilnehmer t = start;
-        if (start.getTn() == null) {
-            System.out.print("Anzahl Teilnehmer: ");
-            return 1;
-        }
+        if (start.getTn() == null)  return 1;
         while (t.getTn() != null) {
             count++;
             t = t.getTn();
         }
-        System.out.print("Anzahl Teilnehmer: ");
         return count;
     }
 
-    //meine variante der "ToStRinG".
-//    public void alleTeilnehmer() {
-//        Teilnehmer teilnehmer = start;
-//        if(start == null){
-//            System.out.println("Die Liste ist leer!");
-//        }else{
-//            while(teilnehmer.getTn() != null){
-//                System.out.println(teilnehmer.toString());
-//                teilnehmer = teilnehmer.getTn();
-//            }
-//            System.out.println(teilnehmer.toString());
-//        }
-//    }
+    public String pointOrderedString(){
+        // funktioniert nicht
+        String pos = "";
+        Teilnehmer teilnehmer = start;
+        TeilnehmerListe copy = new TeilnehmerListe();
+        Teilnehmer a = new Teilnehmer("dddd");
+        copy.addTeilnehmer(a);
+        Teilnehmer highest = a;
+        while(teilnehmer != null){
+            if(highest.getPointslist().countTotalPoints() <= teilnehmer.getPointslist().countTotalPoints()){
+                if(!copy.containsTeilnehmer(teilnehmer.getName())) {
+                    highest = teilnehmer;
+                }
+            }
+            if(teilnehmer.getTn() == null){
+                highest.setTv(null);
+                highest.setTn(null);
+                copy.addTeilnehmer(highest);
+                pos += highest.toString() + '\n';
+                highest = a;
+                teilnehmer = this.start;
+            }else{
+                teilnehmer = teilnehmer.getTn();
+            }
+            if(copy.countTeilnehmer() > this.countTeilnehmer()){
+                break;
+            }
+        }
+        return pos;
+    }
 
+    //fertig
+    public boolean containsTeilnehmer(String tname){
+        if(start.getName().toLowerCase().equals(tname.toLowerCase())) return true;
+        Teilnehmer teilnehmer = start.getTn();
+        while(teilnehmer != null){
+            if(teilnehmer.getName().toLowerCase().equals(tname.toLowerCase())) return true;
+            if(teilnehmer.getTn() == null) return false;
+            else{
+                teilnehmer = teilnehmer.getTn();
+            }
+        }
+        return false;
+    };
+
+    //fertig
     @Override
     public String toString() {
         String at = "";

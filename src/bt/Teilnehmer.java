@@ -74,13 +74,16 @@ public class Teilnehmer implements Comparable<Teilnehmer>{
 
     @Override
     public int compareTo(Teilnehmer teilnehmer) {
-        if(this.getPointslist().countTotalPoints() == teilnehmer.getPointslist().countTotalPoints()){
-            return 0;
-        }else if(this.getPointslist().countTotalPoints() > teilnehmer.getPointslist().countTotalPoints()){
-            return 0;
-        }else if(this.getPointslist().countTotalPoints() < teilnehmer.getPointslist().countTotalPoints()){
-            return 1;
-        }
+        if(this.getPointslist().countTotalPoints() < teilnehmer.getPointslist().countTotalPoints()) return 1;
         return 0;
+//        irrelevant bis jetzt... keine ahnung was ausgegeben werden soll.
+//        if(this.getPointslist().countTotalPoints() == teilnehmer.getPointslist().countTotalPoints()){
+//            return 0;
+//        }else if(this.getPointslist().countTotalPoints() > teilnehmer.getPointslist().countTotalPoints()){
+//            return 0;
+//        }else if(this.getPointslist().countTotalPoints() < teilnehmer.getPointslist().countTotalPoints()){
+//            return 1;
+//        }
+//        return 0;
     }
 }

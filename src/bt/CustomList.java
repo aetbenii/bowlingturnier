@@ -68,8 +68,4 @@ public class CustomList {
         }
         return points += e.getWert();
     }
-
-    public boolean containsElement(Point e){
-        return false;
-    }
 }

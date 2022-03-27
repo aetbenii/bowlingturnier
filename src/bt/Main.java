@@ -4,30 +4,41 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Teilnehmer a1 = new Teilnehmer("thomas", null);
-        Teilnehmer a2 = new Teilnehmer("beni", null);
-
-
         TeilnehmerListe liste = new TeilnehmerListe();
-        liste.addTeilnehmer(a1);
-        liste.addTeilnehmer(a2);
-        liste.addTeilnehmer(new Teilnehmer("Nils",null));
-        liste.addTeilnehmer(new Teilnehmer("Anna",null));
-        liste.addTeilnehmer(new Teilnehmer("tom",null));
-        liste.addTeilnehmer(new Teilnehmer("aalex",null));
-        liste.addTeilnehmer(a2);
+        Teilnehmer t1 = new Teilnehmer("thomas");
+        Teilnehmer t2 = new Teilnehmer("beni");
+        Teilnehmer t3 = new Teilnehmer("nils");
+        Teilnehmer t4 = new Teilnehmer("Anna");
+        Teilnehmer t5 = new Teilnehmer("Tom");
 
+        liste.addTeilnehmer(t1);
+        liste.addTeilnehmer(t2);
+        liste.addTeilnehmer(t3);
+        liste.addTeilnehmer(t4);
+        liste.addTeilnehmer(t5);
 
-        System.out.println(liste.countTeilnehmer() + "\n ---");
+        System.out.println(liste.toString());
 
-        liste.removeTeilnehmer(a2.getName());
+        //Teilnehmer von der liste löschen funktioniert. Auch erster, letzter und dazwischen.
+        //liste.removeTeilnehmer(t1.getName());
+        liste.removeTeilnehmer("anna");
+        liste.removeTeilnehmer("tom");
 
-        liste.addPointsToTeilnehmer("thomas", 5);
+        //Alphabetisch check.
+        liste.addTeilnehmer(new Teilnehmer("Bernd"));
+        liste.addTeilnehmer(new Teilnehmer("Yuu xin"));
+        liste.addTeilnehmer(new Teilnehmer("Xin xauo"));
+
         liste.addPointsToTeilnehmer("thomas", 10);
-        a1.getPointslist().countTotalPoints();
-        System.out.println(a1.getPointslist().countTotalPoints());
-        liste.removeTeilnehmer("aalex");
-        System.out.println(liste.countTeilnehmer() + "\n ---");
+        liste.addPointsToTeilnehmer("beni", 30);
+        liste.addPointsToTeilnehmer("nils", 40);
+        liste.addPointsToTeilnehmer("xin xauo", 10);
+        liste.addPointsToTeilnehmer("yuu xin", 10);
+
+        System.out.println(liste.containsTeilnehmer("nils"));
+
+        liste.pointOrderedString();
+//        System.out.println(liste.pointOrderedString());
         System.out.println(liste.toString());
     }
 }
