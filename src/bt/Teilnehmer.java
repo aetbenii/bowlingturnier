@@ -40,7 +40,7 @@ public class Teilnehmer implements Comparable<Teilnehmer>{
 
     @Override
     public String toString() {
-        return "Name: "+this.name+", Punkte: "+this.getPointslist().countTotalPoints();
+        return "Name: "+this.name+", Punkte Gesamt: "+this.getPointslist().countTotalPoints();
     }
 
     public Teilnehmer getTv() {

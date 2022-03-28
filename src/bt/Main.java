@@ -38,7 +38,10 @@ public class Main {
         //System.out.println(liste.containsTeilnehmer("nils"));
 
         //liste.pointOrderedString();
-        System.out.println(liste.pointOrderedString());
+
         System.out.println(liste.toString());
+
+        System.out.println(liste.pointOrderedString());
+
     }
 }

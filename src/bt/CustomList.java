@@ -1,5 +1,7 @@
 package bt;
 
+import java.lang.annotation.ElementType;
+
 public class CustomList {
     private Point start;
 
@@ -45,9 +47,7 @@ public class CustomList {
     public int countElements(){
         int count = 1;
         Point e = start;
-        if(start.getNext() == null){
-            return 1;
-        }
+        if(start.getNext() == null) return 1;
         while(e.getNext() != null){
             count++;
             e = e.getNext();
@@ -59,13 +59,23 @@ public class CustomList {
     public int countTotalPoints(){
         int points = 0;
         Point e = start;
-        if(start.getNext() == null){
-            return start.getWert();
-        }
+        if(start.getNext() == null) return start.getWert();
         while(e.getNext() != null){
             points += e.getWert();
             e = e.getNext();
         }
         return points += e.getWert();
+    }
+
+    @Override
+    public String toString() {
+        String ts = "";
+        if(start.getNext() == null) return start.getWert()+"";
+        Point p = start;
+        while (p.getNext() != null){
+            ts += p.getWert() + ",";
+            p = p.getNext();
+        }
+        return ts + p.getWert();
     }
 }

@@ -1,5 +1,7 @@
 package bt;
 
+import java.util.Locale;
+
 public class TeilnehmerListe {
 
     private Teilnehmer start;
@@ -14,11 +16,10 @@ public class TeilnehmerListe {
 
         if (this.start == null) { // -> wenn noch kein benutzer in der "liste" ist wird es hier aufgefangen sonst ->
             this.start = t;
-            //System.out.println("Dies ist der erste Benutzer");
         } else {
             while (true) {
-                // die ersten 3 buchstaben, weil sonst hashcode durchdreht
-                if (teilnehmer.getName().equals(t.getName())) { // -> befindet sich der name schon in der liste wird die schleife abgebrochen
+                // überprüfung ob teilnehmer schon in der Liste.
+                if (teilnehmer.getName().toLowerCase().equals(t.getName().toLowerCase())) { // -> befindet sich der name schon in der liste wird die schleife abgebrochen
                     System.out.println("Der Name: '"+t.getName()+"' wird schon verwendet!");
                     break;
                 } else {
