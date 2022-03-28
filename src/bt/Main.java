@@ -35,10 +35,10 @@ public class Main {
         liste.addPointsToTeilnehmer("xin xauo", 10);
         liste.addPointsToTeilnehmer("yuu xin", 10);
 
-        System.out.println(liste.containsTeilnehmer("nils"));
+        //System.out.println(liste.containsTeilnehmer("nils"));
 
-        liste.pointOrderedString();
-//        System.out.println(liste.pointOrderedString());
+        //liste.pointOrderedString();
+        System.out.println(liste.pointOrderedString());
         System.out.println(liste.toString());
     }
 }

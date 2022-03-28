@@ -114,9 +114,9 @@ public class TeilnehmerListe {
                 }
             }
             if(teilnehmer.getTn() == null){
-                highest.setTv(null);
-                highest.setTn(null);
-                copy.addTeilnehmer(highest);
+                Teilnehmer n = new Teilnehmer(highest.getName());
+                copy.addTeilnehmer(n);
+                copy.addPointsToTeilnehmer(n.getName(), highest.getPointslist().countTotalPoints());
                 pos += highest.toString() + '\n';
                 highest = a;
                 teilnehmer = this.start;
